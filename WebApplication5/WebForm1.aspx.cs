@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dal;
 using Bal;
+using ClassLibrary2;
+using System.Data;
 
 namespace WebApplication5
 
@@ -34,7 +36,7 @@ namespace WebApplication5
             {
                 int flag = 0;
 
-                p.addressid = Txtadressid.Text;
+                p.addressid = Convert.ToByte(Txtadressid.Text);
                 p.Firstname = Textfirstname.Text;
                 p.Lastname = Textlastname.Text;
                 p.email = Textemail.Text;
@@ -51,21 +53,21 @@ namespace WebApplication5
 
         }
 
-        protected void deletetxt_Click(object sender, EventArgs e)
-        {
-            p.id = Convert.ToByte(TextBox1.Text);
-            int flag = bal.deleteaddress(p);
-            if (flag == 1)
-            {
-                TextBox2.Text = "record deleted";
-            }
-            else TextBox2.Text = "record not present";
-        }
+        //protected void deletetxt_Click(object sender, EventArgs e)
+        //{
+        //    p.id = Convert.ToByte(TextBox1.Text);
+        //    int flag = bal.deleteaddress(p);
+        //    if (flag == 1)
+        //    {
+        //        TextBox2.Text = "record deleted";
+        //    }
+        //    else TextBox2.Text = "record not present";
+        //}
 
         protected void readtxt_Click(object sender, EventArgs e)
         {
             p.addressid = Convert.ToByte(TextBox1.Text);
-            DataTable d = bal.searchaddress(p);
+            DataTable d = bal.readaddress(p);
             Txtadressid.Text = d.ToString();
 
             foreach (DataRow dr in d.Rows)
@@ -82,9 +84,8 @@ namespace WebApplication5
 
         protected void updatetxt_Click(object sender, EventArgs e)
         {
-            p.id = Convert.ToByte(TextBox1.Text);
-            p.addressid = Txtadressid.Text;
-            bal.update(p);
+            p.addressid = Convert.ToByte(Txtadressid.Text);
+            bal.updateaddress(p);
         }
     }
 }

@@ -38,14 +38,14 @@ namespace Dal
             ada = sqlada();
             ada.Fill(ds);
         }
-        public int insertaddress( string Firstname, string Lastname,String email,string phone)
+        public int insertaddress(int addressid, string Firstname, string Lastname,String email,string phone)
         {
             FillData();
             SqlCommandBuilder cb = new SqlCommandBuilder(ada);
 
             foreach (DataRow d in ds.Tables[0].Rows)
             {
-                if (addressid == d["addressid"].ToString())
+                if (addressid == Convert.ToByte(d["addressid"])) ;
                 {
                     return 0;
                 }

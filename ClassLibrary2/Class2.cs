@@ -9,15 +9,15 @@ using Bal;
 
 namespace ClassLibrary2
 {
-    class property
+   public class property
     {
 
         
-            public string addressid { get; set; }
-            public int Firstname { get; set; }
-            public int email { get; set; }
-            public int Lastname { get; set; }
-            public int phone { get; set; }
+            public int addressid { get; set; }
+            public string Firstname { get; set; }
+            public string email { get; set; }
+            public string Lastname { get; set; }
+            public string phone { get; set; }
         }
     }
 

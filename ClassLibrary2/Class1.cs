@@ -14,9 +14,9 @@ namespace Bal
         DAL d = new DAL();
         property p = new property();
 
-        public int insertaddress(property t)
+        public int insertaddress(property p)
         {
-            return (d.insertaddress(t.addressid, t.Firstname, t.Lastname,t.email,t.phone));
+            return (d.insertaddress( p.addressid,p.Firstname, p.Lastname,p.email,p.phone));
         }
        
         public DataTable readaddress(property p)
@@ -25,7 +25,7 @@ namespace Bal
         }
         public int updateaddress(property p)
         {
-            return (d.updateaddress(p.addressid, p.Firstname,p.lastname,p.email,p.phone));
+            return (d.updateaddress(p.addressid, p.Firstname,p.Lastname,p.email,p.phone));
         }
     }
 }
